@@ -1,0 +1,16 @@
+<!doctype html>
+  <script src="require.js"></script>
+  <script>
+    requirejs.config({
+      shim: {
+        handlebars: {
+          exports: 'Handlebars'
+        }
+      }
+    });
+  </script>
+  <script>
+    require(['hbs!test'], function(test) {
+      document.body.innerHTML = test({template: 'handlebars template'})
+    });
+  </script>

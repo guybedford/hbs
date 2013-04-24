@@ -1,0 +1,15 @@
+{
+  "name": "hbs",
+  "version": "0.0.1",
+  "volo": {
+    "url": "https://raw.github.com/guybedford/hbs/{version}/hbs.js",
+    "dependencies": {
+      "amd-loader": "guybedford/amd-loader/0.0.1"
+    }
+  },
+  "jspm": {
+    "dependencies": {
+      "amd-loader": "0.0.1"
+    }
+  }
+}
