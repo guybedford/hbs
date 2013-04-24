@@ -1,5 +1,5 @@
 define(['amd-loader', 'handlebars'], function(amdLoader, Handlebars) {
-  var includeHelpers = /{{@([a-zA-Z-0-9\.\/]+)/g;
+  var includeHelpers = /{{@([a-zA-Z-0-9\.\/\~]+)/g;
   return amdLoader('hbs', 'hbs', function(name, source, req, callback, errback, config) {
     // replace internal requires with helper form
     var sanitize = function(helperModule) {
