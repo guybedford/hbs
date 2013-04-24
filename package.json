@@ -9,7 +9,7 @@
   },
   "jspm": {
     "dependencies": {
-      "amd-loader": "0.0.1",
+      "amd-loader": "0.0.2",
       "handlebars": "1.0.0"
     }
   }
