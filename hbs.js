@@ -3,7 +3,7 @@ define(['amd-loader', 'handlebars'], function(amdLoader, Handlebars) {
   return amdLoader('hbs', 'hbs', function(name, source, req, callback, errback, config) {
     // replace internal requires with helper form
     var sanitize = function(helperModule) {
-      return helperModule.replace('/', '-').replace('.', '');
+      return helperModule.replace('/', '-').replace('.', '').replace('~', '_');
     }
     var helpers = [];
     source = source.replace(includeHelpers, function (match, dep) {
