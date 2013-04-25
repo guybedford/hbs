@@ -1,4 +1,4 @@
-define(['amd-loader', 'handlebars'], function(amdLoader, Handlebars) {
+define(['amd-loader', './handlebars'], function(amdLoader, Handlebars) {
   var includeHelpers = /{{@([a-zA-Z-0-9\.\/\~]+)/g;
   return amdLoader('hbs', 'hbs', function(name, source, req, callback, errback, config) {
     // replace internal requires with helper form
@@ -11,7 +11,7 @@ define(['amd-loader', 'handlebars'], function(amdLoader, Handlebars) {
       return '{{' + sanitize(dep);
     });
     // require the helpers
-    helpers.unshift('handlebars.runtime');
+    helpers.unshift('hbs/handlebars.runtime');
 
     // return the compiled template
     if (config.isBuild) {

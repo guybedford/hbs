@@ -25,9 +25,9 @@ THE SOFTWARE.
 // lib/handlebars/base.js
 
 /*jshint eqnull:true*/
-this.Handlebars = {};
 
-(function(Handlebars) {
+define(function() {
+var Handlebars = {};
 
 Handlebars.VERSION = "1.0.0-rc.3";
 Handlebars.COMPILER_REVISION = 2;
@@ -318,4 +318,5 @@ Handlebars.VM = {
 };
 
 Handlebars.template = Handlebars.VM.template;
-;
+return Handlebars;
+});
