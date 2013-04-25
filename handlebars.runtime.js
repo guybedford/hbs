@@ -170,7 +170,6 @@ Handlebars.registerHelper('log', function(context, options) {
   Handlebars.log(level, context);
 });
 
-}(this.Handlebars));
 ;
 // lib/handlebars/utils.js
 
