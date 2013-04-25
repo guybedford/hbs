@@ -8,6 +8,7 @@
     }
   },
   "jspm": {
+    "main": ["./hbs", "./handlebars.runtime"],
     "dependencies": {
       "amd-loader": "0.0.2",
       "handlebars": "1.0.1",
