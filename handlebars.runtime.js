@@ -21,13 +21,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 */
-
-// lib/handlebars/base.js
-
-/*jshint eqnull:true*/
-
 define(function() {
+
 var Handlebars = {};
+(function(Handlebars) {
 
 Handlebars.VERSION = "1.0.0-rc.3";
 Handlebars.COMPILER_REVISION = 2;
@@ -170,6 +167,7 @@ Handlebars.registerHelper('log', function(context, options) {
   Handlebars.log(level, context);
 });
 
+}(Handlebars));
 ;
 // lib/handlebars/utils.js
 
