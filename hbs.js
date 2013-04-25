@@ -15,7 +15,7 @@ define(['amd-loader', 'handlebars'], function(amdLoader, Handlebars) {
 
     // return the compiled template
     var output = "define(" + JSON.stringify(helpers) + ", function(Handlebars) {\n"
-      + "  Handlebars.registerHelper('" + sanitize(helpers[1]) + "', arguments[1]);\n"
+      + (helpers[1] ? "  Handlebars.registerHelper('" + sanitize(helpers[1]) + "', arguments[1]);\n" : "")
       + "  var t = Handlebars.template(" + Handlebars.precompile(source) + "); \n"
       + "  return t;\n"
       + "});"
