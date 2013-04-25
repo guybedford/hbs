@@ -19,6 +19,7 @@ define(['amd-loader', 'handlebars'], function(amdLoader, Handlebars) {
       + "  var t = Handlebars.template(" + Handlebars.precompile(source) + "); \n"
       + "  return t;\n"
       + "});"
+    console.log(output);
     callback(output);
   });
 });
