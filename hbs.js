@@ -14,12 +14,26 @@ define(['amd-loader', 'handlebars'], function(amdLoader, Handlebars) {
     helpers.unshift('handlebars.runtime');
 
     // return the compiled template
-    var output = "define(" + JSON.stringify(helpers) + ", function(Handlebars) {\n"
-      + (helpers[1] ? "  Handlebars.registerHelper('" + sanitize(helpers[1]) + "', arguments[1]);\n" : "")
-      + "  var t = Handlebars.template(" + Handlebars.precompile(source) + "); \n"
-      + "  return t;\n"
-      + "});"
-    console.log(output);
-    callback(output);
+    if (config.isBuild) {
+      var output = "define(" + JSON.stringify(helpers) + ", function(Handlebars) {\n"
+        + (helpers[1] ? "  Handlebars.registerHelper('" + sanitize(helpers[1]) + "', arguments[1]);\n" : "")
+        + "  var t = Handlebars.template(" + Handlebars.precompile(source) + "); \n"
+        + "  return t;\n"
+        + "});"
+      callback(output);
+    }
+    else {
+      // require the helpers
+      req(helpers, function() {
+        for (var i = 0; i < arguments.length; i++)
+          Handlebars.registerHelper(sanitize(helpers[i]), arguments[i]);
+
+        // return the compiled template
+        var compiled = Handlebars.compile(source);
+        callback(function(o) {
+          return compiled(o);
+        });
+      });
+    }
   });
 });
