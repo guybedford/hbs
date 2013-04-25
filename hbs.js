@@ -11,7 +11,7 @@ define(['amd-loader', 'handlebars'], function(amdLoader, Handlebars) {
       return '{{' + sanitize(dep);
     });
     // require the helpers
-    helpers.unshift('handlebars/handlebars.runtime');
+    helpers.unshift('handlebars.runtime');
 
     // return the compiled template
     var output = "define(" + JSON.stringify(helpers) + ", function(Handlebars) {\n"
