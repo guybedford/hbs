@@ -18,7 +18,7 @@ define(['amd-loader', './handlebars'], function(amdLoader, Handlebars) {
       var output = "define(" + JSON.stringify(helpers) + ", function(Handlebars) {\n"
         + (helpers[1] ? "  Handlebars.registerHelper('" + sanitize(helpers[1]) + "', arguments[1]);\n" : "")
         + "  var t = Handlebars.template(" + Handlebars.precompile(source) + "); \n"
-        + "  return t;\n"
+        + "  return function(o) { return t(o); };\n"
         + "});"
       callback(output);
     }
