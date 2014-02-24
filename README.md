@@ -4,8 +4,8 @@ Simple [handlebars](http://handlebarsjs.com/) template support for [RequireJS](h
 
 ## Version:
 
-Handlebars: `1.3.0`
-hbs.js: `0.0.3`
+ - Handlebars: `1.3.0`
+ - hbs.js: `0.0.3`
 
 ## Installation:
 ```
@@ -34,13 +34,13 @@ require.config({
 
 ## Usage:
 ```
-require(['hbs!App/Template/body-template'], function (bodyTmpl) {
+require(['hbs!modules/tiny-module/body-template'], function (bodyTmpl) {
 	// Use whatever you would to render the template function
 	document.body.innerHTML = bodyTmpl({adjective: "favorite"});
 });
 ```
 
-Path: `App/Template/body-template.hbs`
+Path: `modules/tiny-module/tiny-template.hbs`
 ```
 <div class="the better handlebars plugin">
 	This is my {{ adjective }} template.
@@ -51,7 +51,7 @@ Path: `App/Template/body-template.hbs`
 
 To have partials in your templates just use the syntax and provide a path to the partial
 
-Path: `App/Template/body-template.hbs`
+Path: `modules/tiny-module/body-template.hbs`
 ```
 <div class="the better handlebars plugin">
 	This is my {{ adjective }} template.
@@ -63,7 +63,7 @@ Path: `App/Template/body-template.hbs`
 </div>
 ```
 
-Path: `App/Template/coolPartial.hbs`
+Path: `modules/tiny-module/cool.partial.hbs`
 ```
 <div class="cool partial">
 	Coolest partial in town
@@ -76,5 +76,23 @@ Path: `App/Template/coolPartial.hbs`
 Helpers can be loaded by RequireJS Module ID.
 
 ```
-Fullname: {{@some/helper name}}
+Slug: {{@helpers/slugify.helper "cool slug that can be used in a url"}}
+OR
+Slug: {{@helpers/slugify.helper title}}
+```
+
+Here is how to create a helper:
+
+Path: `js/helpers/slugify.helper.js`
+```
+define(function() {
+	return function(text) {
+		return new Handlebars.SafeString(
+			text
+				.toLowerCase()
+				.replace(/ /g,'-')
+				.replace(/[^\w-]+/g,'')
+		);
+	}
+});
 ```

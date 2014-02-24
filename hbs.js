@@ -103,7 +103,6 @@ define(['amd-loader', 'handlebars'], function(amdLoader, Handlebars) {
         for (var i = 0; i < arguments.length; i++)
           Handlebars.registerHelper(sanitize(helpers[i]), arguments[i]);
 
-
         // Now make the path relative
         var partialReferences = [partials.length];
         for (var i in partials)

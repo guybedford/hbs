@@ -1,0 +1,28 @@
+<style>
+pre {
+	display: inline;
+}
+.the.better.handlebars.plugin {
+	border: 1px solid rgba(0, 0, 0, .5);
+}
+</style>
+
+<div class="the better handlebars plugin">
+	<h4>Tiny Module</h4>
+	This is my {{ adjective }} template.
+	<br />
+	Now here is the partial(<pre>cool.partial.hbs</pre>) in <pre>tiny-template.hbs</pre>: 
+
+	{{! the path can be relative to the current template: }}
+	{{> ./cool.partial }}
+
+	<hr />
+
+	Check out the random list with the slug urls created by a helper
+	<ul id="random-list">
+		{{#each randomList}}
+			{{> ./random-list-item.partial }}
+		{{/each}}
+		<li id="add-to-list"><button>Add to list</button></li>
+	</ul>
+</div>
