@@ -102,6 +102,8 @@ You can even use block helpers.
 {{#@helpers/include.helper title="Lobby" url="http://google.com/" }}{{> ./tiny-link.partial }}{{/helpers/include.helper}}
 ```
 
+### Block helpers:
+
 Here is how to create a block helper:
 Path: `js/helpers/include.helper.js`
 ```
@@ -124,6 +126,7 @@ define(function() {
 `0.0.4`: 
  - Added support for block helpers
  - Updated test with block helpers
+
 `0.0.3`: 
  - Added support for partials
  - Updated test with examples for all features
