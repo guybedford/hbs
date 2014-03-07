@@ -18,11 +18,21 @@ pre {
 
 	<hr />
 
-	Check out the random list with the slug urls created by a helper
+	Check out the random list with the slug urls created by a helper: <pre>helpers/slugify.helper</pre>
 	<ul id="random-list">
 		{{#each randomList}}
 			{{> ./random-list-item.partial }}
 		{{/each}}
 		<li id="add-to-list"><button>Add to list</button></li>
 	</ul>
+
+	<hr />
+
+	<div>
+		Here is a tiny link made with inline context/hash variables with a block helper: <pre>helpers/include.helper</pre>
+		<br />
+		{{#@helpers/include.helper title="Lobby" url="http://google.com/" message="Hey, check out this link: " }}
+			{{ message }}{{> ./tiny-link.partial }}
+		{{/helpers/include.helper}}
+	</div>
 </div>

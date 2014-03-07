@@ -5,7 +5,7 @@ Simple [handlebars](http://handlebarsjs.com/) template support for [RequireJS](h
 ## Version:
 
  - Handlebars: `1.3.0`
- - hbs.js: `0.0.3`
+ - hbs.js: `0.0.4`
 
 ## Installation:
 ```
@@ -96,3 +96,34 @@ define(function() {
 	}
 });
 ```
+
+You can even use block helpers.
+```
+{{#@helpers/include.helper title="Lobby" url="http://google.com/" }}{{> ./tiny-link.partial }}{{/helpers/include.helper}}
+```
+
+Here is how to create a block helper:
+Path: `js/helpers/include.helper.js`
+```
+define(function() {
+	// via: http://stackoverflow.com/a/18026063/796832
+	return function(options) {
+		var context = {};
+		var mergeContext = function(obj) {
+			for(var k in obj)context[k]=obj[k];
+		};
+		mergeContext(this);
+		mergeContext(options.hash);
+		return options.fn(context);
+	}
+});
+```
+
+## Changelog:
+
+`0.0.4`: 
+ - Added support for block helpers
+ - Updated test with block helpers
+`0.0.3`: 
+ - Added support for partials
+ - Updated test with examples for all features

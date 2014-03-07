@@ -1,6 +1,6 @@
 {
   "name": "hbs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "volo": {
     "url": "https://raw.github.com/guybedford/hbs/{version}/hbs.js",
     "dependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "hbs",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "dependencies": {
     "amd-loader": "guybedford/amd-loader#0.0.1"
   }
