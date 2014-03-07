@@ -97,12 +97,12 @@ define(function() {
 });
 ```
 
-You can even use block helpers.
+### Block helpers:
+
+You can even import and use block helpers!
 ```
 {{#@helpers/include.helper title="Lobby" url="http://google.com/" }}{{> ./tiny-link.partial }}{{/helpers/include.helper}}
 ```
-
-### Block helpers:
 
 Here is how to create a block helper:
 Path: `js/helpers/include.helper.js`
